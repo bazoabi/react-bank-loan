@@ -19,6 +19,24 @@ export default function LoanForm() {
     setLoanInputs({ ...loanInputs, isEmployee: event.target.checked });
   };
 
+  //   const handleSubmitBtnIsDisabled = () => {
+  //     return (
+  //       loanInputs.name === "" ||
+  //       loanInputs.phoneNumber === "" ||
+  //       loanInputs.age === ""
+  //     );
+  //   };
+
+  const isSubmitBtnDisabled =
+    loanInputs.name === "" ||
+    loanInputs.phoneNumber === "" ||
+    loanInputs.age === "";
+
+  const handleSubmitBtnClicked = (event) => {
+    event.preventDefault();
+    alert("Submitted the form");
+  };
+
   return (
     <div id="LoanFormContainer" className="flex">
       <form id="LoanForm" className="flex">
@@ -68,7 +86,14 @@ export default function LoanForm() {
           <option>Above 2000$</option>
         </select>
 
-        <button id="submitBtn">Submit</button>
+        <button
+          className={isSubmitBtnDisabled ? "disabled" : ""}
+          id="submitBtn"
+          disabled={isSubmitBtnDisabled}
+          onClick={handleSubmitBtnClicked}
+        >
+          Submit
+        </button>
       </form>
 
       {/* <Modal /> */}
