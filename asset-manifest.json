@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/react-bank-loan/static/css/main.13dcedf5.css",
+    "main.js": "/react-bank-loan/static/js/main.8c9b558a.js",
+    "static/js/453.1b384f28.chunk.js": "/react-bank-loan/static/js/453.1b384f28.chunk.js",
+    "index.html": "/react-bank-loan/index.html",
+    "main.13dcedf5.css.map": "/react-bank-loan/static/css/main.13dcedf5.css.map",
+    "main.8c9b558a.js.map": "/react-bank-loan/static/js/main.8c9b558a.js.map",
+    "453.1b384f28.chunk.js.map": "/react-bank-loan/static/js/453.1b384f28.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.13dcedf5.css",
+    "static/js/main.8c9b558a.js"
+  ]
+}
