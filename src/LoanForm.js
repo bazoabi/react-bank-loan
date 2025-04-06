@@ -3,6 +3,8 @@ import "./FormStyles.css";
 import Modal from "./Modal";
 
 export default function LoanForm() {
+  const [errorMessage, setErrorMessage] = useState("");
+  const [showModal, setShowModal] = useState(false);
   const [loanInputs, setLoanInputs] = useState({
     name: "",
     phoneNumber: "",
@@ -34,11 +36,24 @@ export default function LoanForm() {
 
   const handleSubmitBtnClicked = (event) => {
     event.preventDefault();
-    alert("Submitted the form");
+    setErrorMessage("");
+    const phoneNumLength = loanInputs.phoneNumber.length;
+    if (!(phoneNumLength >= 10 && phoneNumLength <= 12)) {
+      setErrorMessage("Phone Format Is Not Valid");
+    } else if (loanInputs.age < 18 || loanInputs.age > 100) {
+      setErrorMessage("Age Is Not Valid");
+    }
+    setShowModal(true);
+  };
+
+  const hideModal = () => {
+    if (showModal) {
+      setShowModal(false);
+    }
   };
 
   return (
-    <div id="LoanFormContainer" className="flex">
+    <div id="LoanFormContainer" className="flex" onClick={hideModal}>
       <form id="LoanForm" className="flex">
         <h1>Requesting A Loan</h1>
         <hr></hr>
@@ -96,7 +111,7 @@ export default function LoanForm() {
         </button>
       </form>
 
-      {/* <Modal /> */}
+      <Modal isVisible={showModal} errorMessage={errorMessage} />
     </div>
   );
 }
