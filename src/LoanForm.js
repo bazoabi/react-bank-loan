@@ -1,3 +1,6 @@
+import "./FormStyles.css";
+import Modal from "./Modal";
+
 export default function LoanForm() {
   return (
     <div id="LoanFormContainer" className="flex">
@@ -26,6 +29,8 @@ export default function LoanForm() {
 
         <button id="submitBtn">Submit</button>
       </form>
+
+      <Modal />
     </div>
   );
 }
