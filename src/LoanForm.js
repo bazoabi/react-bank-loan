@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./FormStyles.css";
 import Modal from "./Modal";
 import FormInputComponent from "./FormInputComponent";
+import { loanInputsContext } from "./contexts/LoanFormInputContext";
 
 export default function LoanForm() {
   const [errorMessage, setErrorMessage] = useState("");
@@ -67,12 +68,16 @@ export default function LoanForm() {
           onChange={handleLoanInputsChange}
         ></input> */}
 
-        <FormInputComponent
-          inputTitle="Name"
-          inputName="name"
-          value={loanInputs.name}
-          handleChange={handleLoanInputsChange}
-        />
+        <loanInputsContext.Provider
+          value={{
+            labelTitle: "Name",
+            inputName: "name",
+            value: loanInputs.name,
+            handleChange: handleLoanInputsChange,
+          }}
+        >
+          <FormInputComponent />
+        </loanInputsContext.Provider>
 
         {/* <label>Phone Number:</label>
         <input
@@ -82,12 +87,16 @@ export default function LoanForm() {
           onChange={handleLoanInputsChange}
         ></input> */}
 
-        <FormInputComponent
-          inputTitle="Phone Number"
-          inputName="phoneNumber"
-          value={loanInputs.phoneNumber}
-          handleChange={handleLoanInputsChange}
-        />
+        <loanInputsContext.Provider
+          value={{
+            labelTitle: "Phone Number",
+            inputName: "phoneNumber",
+            value: loanInputs.phoneNumber,
+            handleChange: handleLoanInputsChange,
+          }}
+        >
+          <FormInputComponent />
+        </loanInputsContext.Provider>
 
         {/* <label>Age:</label>
         <input
@@ -97,12 +106,16 @@ export default function LoanForm() {
           onChange={handleLoanInputsChange}
         ></input> */}
 
-        <FormInputComponent
-          inputTitle="Age"
-          inputName="age"
-          value={loanInputs.age}
-          handleChange={handleLoanInputsChange}
-        />
+        <loanInputsContext.Provider
+          value={{
+            labelTitle: "Age",
+            inputName: "age",
+            value: loanInputs.age,
+            handleChange: handleLoanInputsChange,
+          }}
+        >
+          <FormInputComponent />
+        </loanInputsContext.Provider>
 
         <label style={{ marginTop: "30px" }}>Are you an employee?</label>
         <input
