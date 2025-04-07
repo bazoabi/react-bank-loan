@@ -1,6 +1,6 @@
 import { createContext } from "react";
 
-export const loanInputsContext = createContext({
+export let loanInputsContext = createContext({
   labelTitle: "",
   inputName: "",
   value: null,

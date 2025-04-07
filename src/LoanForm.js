@@ -3,12 +3,17 @@ import "./FormStyles.css";
 import Modal from "./Modal";
 import FormInputComponent from "./FormInputComponent";
 import { loanInputsContext } from "./contexts/LoanFormInputContext";
+import { useContext } from "react";
+import { UserContext } from "./contexts/UserContext";
 
 export default function LoanForm() {
   const [errorMessage, setErrorMessage] = useState("");
   const [showModal, setShowModal] = useState(false);
+
+  // Fetch the name of user from UserContext to fill as an initial value inside the form
+  const userContext = useContext(UserContext);
   const [loanInputs, setLoanInputs] = useState({
-    name: "",
+    name: userContext.name,
     phoneNumber: "",
     age: "",
     isEmployee: false,
@@ -56,6 +61,7 @@ export default function LoanForm() {
 
   return (
     <div id="LoanFormContainer" className="flex" onClick={hideModal}>
+      <h1 style={{ color: "white" }}>Hello {userContext.name}</h1>
       <form id="LoanForm" className="flex">
         <h1>Requesting A Loan</h1>
         <hr></hr>
