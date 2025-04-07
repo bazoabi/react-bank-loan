@@ -1,12 +1,7 @@
 import { useContext } from "react";
 import { loanInputsContext } from "./contexts/LoanFormInputContext";
 
-export default function FormInputComponent({
-  inputTitle,
-  inputName,
-  value,
-  handleChange,
-}) {
+export default function FormInputComponent() {
   const inputsContext = useContext(loanInputsContext);
   return (
     <>
