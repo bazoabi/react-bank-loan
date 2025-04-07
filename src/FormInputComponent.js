@@ -1,17 +1,21 @@
+import { useContext } from "react";
+import { loanInputsContext } from "./contexts/LoanFormInputContext";
+
 export default function FormInputComponent({
   inputTitle,
   inputName,
   value,
   handleChange,
 }) {
+  const inputsContext = useContext(loanInputsContext);
   return (
     <>
-      <label>{inputTitle}:</label>
+      <label>{inputsContext.labelTitle}:</label>
       <input
-        name={inputName}
+        name={inputsContext.inputName}
         type="text"
-        value={value}
-        onChange={handleChange}
+        value={inputsContext.value}
+        onChange={inputsContext.handleChange}
       ></input>
     </>
   );
