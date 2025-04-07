@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./FormStyles.css";
 import Modal from "./Modal";
+import FormInputComponent from "./FormInputComponent";
 
 export default function LoanForm() {
   const [errorMessage, setErrorMessage] = useState("");
@@ -58,29 +59,50 @@ export default function LoanForm() {
         <h1>Requesting A Loan</h1>
         <hr></hr>
 
-        <label>Name:</label>
+        {/* <label>Name:</label>
         <input
           name="name"
           type="text"
           value={loanInputs.name}
           onChange={handleLoanInputsChange}
-        ></input>
+        ></input> */}
 
-        <label>Phone Number:</label>
+        <FormInputComponent
+          inputTitle="Name"
+          inputName="name"
+          value={loanInputs.name}
+          handleChange={handleLoanInputsChange}
+        />
+
+        {/* <label>Phone Number:</label>
         <input
           name="phoneNumber"
           type="text"
           value={loanInputs.phoneNumber}
           onChange={handleLoanInputsChange}
-        ></input>
+        ></input> */}
 
-        <label>Age:</label>
+        <FormInputComponent
+          inputTitle="Phone Number"
+          inputName="phoneNumber"
+          value={loanInputs.phoneNumber}
+          handleChange={handleLoanInputsChange}
+        />
+
+        {/* <label>Age:</label>
         <input
           name="age"
           type="text"
           value={loanInputs.age}
           onChange={handleLoanInputsChange}
-        ></input>
+        ></input> */}
+
+        <FormInputComponent
+          inputTitle="Age"
+          inputName="age"
+          value={loanInputs.age}
+          handleChange={handleLoanInputsChange}
+        />
 
         <label style={{ marginTop: "30px" }}>Are you an employee?</label>
         <input
